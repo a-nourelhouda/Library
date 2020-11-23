@@ -6,7 +6,9 @@
 
 package entities;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 /**
  *
@@ -19,6 +21,33 @@ public class Book {
     private String author;
     private double price;
     private Date releaseDate;
+    
+ 
+    public Book() {
+    }
+    
+    public Book(String title, String author, double price, Date releaseDate) {
+
+        this.title = title;
+        this.author = author;
+        this.price = price;
+        this.releaseDate = releaseDate;
+        
+    }
+    
+    
+    public String ToString(){
+    
+    return "id"+this.id+"title"+this.title+"author"+this.author+
+            "price"+this.price+"releasedate"+this.releaseDate ;
+    
+    
+    
+    }
+    
+    
+    
+    
 
     public int getId() {
         return id;
