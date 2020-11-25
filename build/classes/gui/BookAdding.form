@@ -148,6 +148,9 @@
       </Properties>
     </Component>
     <Component class="datechooser.beans.DateChooserCombo" name="dateChooserCombo2">
+      <Properties>
+        <Property name="dch_combo_dateFormat" type="int" value="2"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

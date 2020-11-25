@@ -57,12 +57,34 @@ public class DaoBook {
      }
      con.close();
      return li;
-     
+   
     
+    }
     
+    public void UpdateBook(int id,String title,String author,Double price, Date releaseDate) throws SQLException{
     
+    con = c.LibraryDB();
+    String req= "Update book SET title= ?,price= ?,author= ?,releaseDate=?  where id = ?";
+    PreparedStatement updating= con.prepareStatement(req);
+    updating.setString(1,title);
+    updating.setDouble(2,price);
+    updating.setString(3,author);
+    updating.setDate(4,releaseDate);
+    updating.setInt(5,id);
+    updating.executeUpdate();
+    System.out.println("Done updating");
+    con.close();
+    }
     
+    public void DeleteBook(int id) throws SQLException{
     
+    con=c.LibraryDB();
+    String req = "Delete from book where id=?" ;
+    PreparedStatement deleting = con.prepareStatement(req);
+    deleting.setInt(1,id);
+    deleting.executeUpdate();
+    System.out.println("Done deleting");   
+    con.close();   
     }
     
     

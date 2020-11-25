@@ -37,6 +37,7 @@ public class Library {
         //Real Deal
         Scanner S = new Scanner(System.in);
          int exit = 0, choice;
+        DaoBook bd = new DaoBook();
 
         while (exit != 1) {
             
@@ -44,7 +45,8 @@ public class Library {
             System.out.println("1 : Display Book List \n");
             System.out.println("2 : Create New Book \n");
             System.out.println("3 : Update a Book \n");
-            System.out.println("4 : Exit.\n");
+            System.out.println("4 : Delete a Book \n");
+            System.out.println("5 : Exit.\n");
             choice = S.nextInt();
         switch (choice) {
             case 1:
@@ -66,7 +68,7 @@ public class Library {
                 String d=S.next();
                 Date date=Date.valueOf(d); 
                 Book b=new Book(titre,aut,prix,date);
-               DaoBook bd = new DaoBook();
+               
                 try {
                 bd.addBook(b);
                 } catch (SQLException ex) {
@@ -75,10 +77,34 @@ public class Library {
             break;
                 
             case 3 :
-                System.out.println("not yet");
+                System.out.println("Type the id");
+                int id =S.nextInt();
+                System.out.println("type the title");
+                titre=S.nextLine();
+                String duh=S.nextLine();
+                System.out.println("type the author");
+                aut=S.nextLine();
+                System.out.println("type the price");
+                prix=S.nextDouble();
+                System.out.println("type the date");
+                d=S.next();
+                date=Date.valueOf(d); 
+              
+                
+                try {
+                bd.UpdateBook(id,titre,aut,prix,date);
+                } catch (SQLException ex) {
+                System.out.println(ex);
+                }
             break;
-            
+             
             case 4 :
+                System.out.println("Type the id");
+                id =S.nextInt();
+                bd.DeleteBook(id);
+                
+            break;    
+            case 5 :
                 exit = 1;
                 System.out.println("System Shuttig down..");
             break;

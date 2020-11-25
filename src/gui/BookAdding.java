@@ -85,6 +85,8 @@ public class BookAdding extends javax.swing.JFrame {
         label5.setForeground(new java.awt.Color(0, 153, 204));
         label5.setText("Adding A Book ");
 
+        dateChooserCombo2.setFormat(2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,8 +149,9 @@ public class BookAdding extends javax.swing.JFrame {
         String title = jTextField1.getText();
         String author = jTextField2.getText();
         double price = Double.parseDouble(jTextField3.getText());
-        SimpleDateFormat d = new SimpleDateFormat("yyyy-mm-dd");
-        String date = d.format(dateChooserCombo2.getText());
+        SimpleDateFormat d = new SimpleDateFormat("yyyy-mm-dd");   
+        String date ;
+        date = d.format(dateChooserCombo2.getSelectedDate().getTime());
         Date releaseDate= Date.valueOf(date);
         
         if(title.equals("")){
